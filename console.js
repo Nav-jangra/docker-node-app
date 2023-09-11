@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 app.use(registerRoute)
 
 
-app.use(MongooseModule)
+//app.use(MongooseModule)
 
 // Fetching all the employees
 

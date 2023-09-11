@@ -1,13 +1,17 @@
+const jwt = require('jsonwebtoken')
+const secret = 'supersecret'
 const routeFilter = (req, res, next)=>{
-     if(!req.query.age){
-        res.send("Please provide your age")
-     }
-     else if(req.query.age <18){
-        res.send("you are under age")
-     }
-     else{
-        next();
-     }
+//checking and verifying the token
+   var token = req.header("token");
+   if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
+
+   jwt.verify(token, secret, (err,decoded)=>{
+   if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' }); 
+   else{
+      next();
+   }
+  });
+
 }
 
 module.exports = routeFilter
