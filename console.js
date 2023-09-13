@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-const MongooseModule = require('./schema/mongooseSchema')
+const MongooseModule = require('./schema/user')
 const registerRoute = require('./Routes/register')
 const PORT = 3000
 

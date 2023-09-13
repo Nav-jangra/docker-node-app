@@ -1,18 +1,14 @@
 const mongoose = require('mongoose')
-const { Timestamp } = require('mongodb');
+const { Timestamp, ObjectId } = require('mongodb');
 
 // for tasks
 const tasks = new mongoose.Schema({
-    id : {
-        type : String ,
+    user : {
+        type : mongoose.Schema.Types.ObjectId, ref: 'User'  ,
         required : true
     },
-    Description : String,
-    ETD : Timestamp, 
-    Email : {
-        type : String,
-        required : true
-    }
+    description : String,
+    etd : Date, 
 })
 const taskSchema = mongoose.model("task",tasks)
 module.exports = taskSchema
