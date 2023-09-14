@@ -1,4 +1,7 @@
+const { ObjectId } = require('mongodb');
+const mongoose = require('mongoose')
 const dbTask = require('../schema/task')
+const db = require('../schema/user')
 const jwt = require('jsonwebtoken')
 const secret = 'supersecret'
 
@@ -33,18 +36,24 @@ const create = async (model,res) => {
     }
 }
 
-const get = async(id,res) => {
+
+// service to show the tasks of the user
+const get = async(model,res) => {
     try {
-        const Task = await dbTask.collection.find({ "id": id }).toArray()
+        const token = model.header('token')
+        const decodedToken =  jwt.verify(token, secret)
+        let id = new mongoose.Types.ObjectId(decodedToken.id)
+
+        const Task = await dbTask.collection.find({ "user":  id }).toArray()
+
         if (Task === null) {
             res.json({message : "not found"})
         }
         else {
-            res.json({ Task })
-            
+            res.json({ Task }) 
         }
+
     } catch(err){
-        console.log('its over ')
         res.json({message : "Some error has occured"})
     }  
 }
