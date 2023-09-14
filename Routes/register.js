@@ -1,9 +1,10 @@
 const express = require('express')
 const dotenv = require('dotenv');
 const mongoose = require('mongoose')
-const routeFilter = require('../middleware');
+const routeFilter = require('../middleware/middleware');
 const taskService = require("../services/tasks")
 const userService = require("../services/users")
+const cronService = require('../scripts/cronEmailer')
 
 const router = express.Router();
 router.use(express.json());
@@ -61,7 +62,12 @@ router.post('/task', routeFilter, async (req, res) => {
 //router for showing tasks
 
 router.get('/showTasks', routeFilter, async(req, res) => {
-    await taskService.get(req.body.id,res)
+    await taskService.get(req,res)
+})
+
+// for testing of cron job script 
+router.get('/cronJob', async (req,res)=>{
+    await cronService.get(res);
 })
 
 

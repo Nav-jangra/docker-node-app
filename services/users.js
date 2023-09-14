@@ -2,6 +2,7 @@ const db = require('../schema/user')
 const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
 const { ObjectId } = require('mongodb');
+const bcrypt = require('bcrypt')
 
 const secret = 'supersecret'
 
@@ -11,6 +12,9 @@ const create = async (model,res) => {
     var email = (model.email);
 
     try{
+        //encrypting the password
+        password =  await bcrypt.hash(password, 10)
+
         const User = await db.collection.findOne({ $or: [{"name": user_name} ,{ "email" : email}]})
         if (User != null) {
             return res.status(400).send({
@@ -18,7 +22,7 @@ const create = async (model,res) => {
             })
         }
         else {
-            const user = {
+            let user = {
                 name: user_name,
                 pass: password,
                 email : email
@@ -63,7 +67,7 @@ const getById = async(model, res) =>{
 const get = async (res) => {
     try{
         const ans = await db.collection.find({}).toArray()
-        res.send(ans);
+        res.json(ans);
     }
     catch(err){
         res.json({message : "something happened"})
@@ -74,8 +78,10 @@ const get = async (res) => {
 
 
 const search = async(model,res) => {
-    var user_name = (model.name);
-    var password = (model.password);
+    let user_name = (model.name);
+    let password = (model.password);
+
+
     try{
         const User = await db.collection.findOne({ "name": user_name })
         if (User === null) {
@@ -84,7 +90,7 @@ const search = async(model,res) => {
             })
         }
         else {
-            if (User.pass === password) {
+            if (bcrypt.compare(password, User.pass)) {
                 jwt.sign({ id : User._id }, secret, { expiresIn: '2h' }, (err, token) => {
                     res.json({ token })
                 })
