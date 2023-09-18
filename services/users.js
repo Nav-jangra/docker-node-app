@@ -7,11 +7,13 @@ const bcrypt = require('bcrypt')
 const secret = 'supersecret'
 
 const create = async (model,res) => {
-    var user_name = (model.name);
-    var password = (model.password);
-    var email = (model.email);
+    
 
     try{
+
+        var user_name = (model.name);
+        var password = (model.password);
+        var email = (model.email);
         //encrypting the password
         password =  await bcrypt.hash(password, 10)
 
@@ -36,11 +38,14 @@ const create = async (model,res) => {
                 }catch(err) {
                         console.log(err);
                     }
-                res.send({ "message": 'registered succesfully' })
+                res.status(200).send({ "message": 'User registered successfully' })
+            }
+            else{
+                res.status(400).send({message : 'something happened'})
             }
         }
-    }catch(err){
-        res.json({message : "something happened"})
+    }catch(error){
+        res.status(400).send({message : 'something happened'})
     }
     
 }
