@@ -14,6 +14,7 @@
                                         |           |
                                     userName      password                    <------- input (as a json obj)-------->
 
+
 <------- returns-------->                    --------> token
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,7 +57,7 @@
                                         |
                                         token
 
-<------- returns-------->          -------> shows tasks of the logged in user
+<------- returns -------->          -------> shows tasks of the logged in user
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -67,5 +68,5 @@
                                          |
                                          token
 
- <------- returns-------->                    ---------> for testing the cron script
+ <------- returns -------->                    ---------> for testing the cron script
 
