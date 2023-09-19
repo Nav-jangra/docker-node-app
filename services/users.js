@@ -58,8 +58,10 @@ const getById = async(model, res) =>{
 
     //searching the data by the id and displaying the data
     try{
-        const ans = await db.collection.find(id).toArray()
-        res.json(ans);
+        const ans = await db.collection.find(id).toArray();
+
+        let user = ans.map(function(doc) { return {description: doc.name ,etd : doc.email} });
+        res.json(user);
     }
     catch(err){
         res.json({message : "something happened"})
@@ -72,7 +74,9 @@ const getById = async(model, res) =>{
 const get = async (res) => {
     try{
         const ans = await db.collection.find({}).toArray()
-        res.json(ans);
+
+        var users = ans.map(function(doc) { return {description: doc.name ,etd : doc.email} });
+        res.json(users);
     }
     catch(err){
         res.json({message : "something happened"})

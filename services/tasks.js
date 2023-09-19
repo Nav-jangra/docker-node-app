@@ -46,11 +46,13 @@ const get = async(model,res) => {
 
         const Task = await dbTask.collection.find({ "user":  id }).toArray()
 
-        if (Task === null) {
+        var tasks = Task.map(function(doc) { return {description: doc.description ,etd : doc.etd} });
+
+        if (tasks === null) {
             res.json({message : "not found"})
         }
         else {
-            res.json({ Task }) 
+            res.json({ tasks }) 
         }
 
     } catch(err){
