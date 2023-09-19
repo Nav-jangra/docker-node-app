@@ -1,72 +1,77 @@
 
                                 Register  -----------------------
+                                            ^     ^          ^
                                             |     |          |
                                             |     |          |
-                                            v     v          v
-                                     userName   password    email
+                                     userName   password    email       -->     input 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
                                 login -------------------
+                                        ^           ^
                                         |           |
                                         |           |
-                                        v           v
-                                    userName      password
+                                    userName      password       -->   input 
 
-                                --------> token
+
+ returns                   --------> token
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
                                 allUser -------------------
+                                            ^
                                             |
                                             |
-                                            v
-                                        token
+                                        token             -->   input
 
-                                -------> data of all users 
+ returns                              -------> data of all users 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
                                 user/:_id ------------------
+                                            ^
                                             |
                                             |
-                                            v
-                                        token
+                                        token      -->   input
 
-                                -------> data of the specified user
+ returns                              -------> data of the specified user
                                 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+       Creating a task for a specified user
 
                                 task -----------------------------
+                                        ^         ^             ^
                                         |         |             |
                                         |         |             |
-                                        v         v             v
-                                    token       description     etd
+                                    token       description     etd      -->   input
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+         showing the tasks for the logged in user
 
                                 showTask --------------------------
+                                        ^
                                         |
                                         |
-                                        v
-                                        token
-                                
-                                -------> shows tasks of the logged in user
+                                        token       -->   input
+
+returns           -------> shows tasks of the logged in user
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+for testing the cron job
 
                                 cronTasks --------------------------
+                                         ^
                                          |
                                          |
-                                         v
-                                         token
+                                         token     -->   input
 
-                                ---------> for testing the cron script
+ returns             ---------> for testing the cron script
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
