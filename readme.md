@@ -3,7 +3,7 @@
                                             ^     ^          ^
                                             |     |          |
                                             |     |          |
-                                     userName   password    email             <------- input (as a json obj)-------->
+                                     userName   password    email       -->     input 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -12,10 +12,10 @@
                                         ^           ^
                                         |           |
                                         |           |
-                                    userName      password                    <------- input (as a json obj)-------->
+                                    userName      password       -->   input 
 
 
-<------- returns-------->                    --------> token
+ returns                   --------> token
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -24,9 +24,9 @@
                                             ^
                                             |
                                             |
-                                        token
+                                        token             -->   input
 
-<------- returns-------->                                  -------> data of all users 
+ returns                              -------> data of all users 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -35,38 +35,43 @@
                                             ^
                                             |
                                             |
-                                        token      
+                                        token      -->   input
 
-                                -------> data of the specified user
+ returns                              -------> data of the specified user
                                 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+       Creating a task for a specified user
 
                                 task -----------------------------
                                         ^         ^             ^
                                         |         |             |
                                         |         |             |
-                                    token       description     etd
+                                    token       description     etd      -->   input
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+         showing the tasks for the logged in user
 
                                 showTask --------------------------
                                         ^
                                         |
                                         |
-                                        token
+                                        token       -->   input
 
-<------- returns -------->          -------> shows tasks of the logged in user
+returns           -------> shows tasks of the logged in user
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+for testing the cron job
 
                                 cronTasks --------------------------
                                          ^
                                          |
                                          |
-                                         token
+                                         token     -->   input
 
- <------- returns -------->                    ---------> for testing the cron script
+ returns             ---------> for testing the cron script
 
