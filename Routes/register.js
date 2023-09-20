@@ -12,7 +12,7 @@ dotenv.config();
 
 //coneecting with the database
 
-mongoose.connect("mongodb://localhost:27017/Employees", { useNewUrlParser: true });
+mongoose.connect("mongodb://newproject-mongodb-1:27017/Employees", { useNewUrlParser: true });
 
 const connection = mongoose.connection
 

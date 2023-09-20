@@ -1,4 +1,26 @@
 
+please follow these steps to run this node application 
+
+1. To get a local copy of the code, clone it using git:
+
+        git clone https://github.com/Nav-jangra/new-project
+        cd docker-node-app
+
+2. Now that you have some source code and a Dockerfile, it’s time to build your first image:
+
+        docker-compose build
+
+
+3. Start a container based on your new image:
+
+        docker-compose up -d
+
+4. Visit your application in a browser at http://localhost:8080. You should see your hello world application up and running.
+
+
+
+               Registering the user
+               
                                 Register  -----------------------
                                             ^     ^          ^
                                             |     |          |
@@ -8,36 +30,39 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+                     user login
+
                                 login -------------------
                                         ^           ^
                                         |           |
                                         |           |
                                     userName      password       -->   input 
 
-
- returns                   --------> token
+                                returns                   --------> token
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+                          
+        showing all users data
 
                                 allUser -------------------
                                             ^
                                             |
                                             |
-                                        token             -->   input
+                                        token (header)            -->   input
 
- returns                              -------> data of all users 
+                              returns          -------> data of all users 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+     showing the data of specified user
 
                                 user/:_id ------------------
                                             ^
                                             |
                                             |
-                                        token      -->   input
+                                        token (header)     -->   input
 
- returns                              -------> data of the specified user
+                                returns        -------> data of the specified user
                                 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -48,30 +73,30 @@
                                         ^         ^             ^
                                         |         |             |
                                         |         |             |
-                                    token       description     etd      -->   input
+                            (header) token       description     etd      -->   input
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-         showing the tasks for the logged in user
+    showing the tasks for the logged in user
 
                                 showTask --------------------------
                                         ^
                                         |
                                         |
-                                        token       -->   input
+                                    token  (header)     -->   input
 
-returns           -------> shows tasks of the logged in user
+                        returns       -------> shows tasks of the logged in user
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-for testing the cron job
+       for testing the cron job
 
                                 cronTasks --------------------------
                                          ^
                                          |
                                          |
-                                         token     -->   input
+                                    token (header)     -->   input
 
- returns             ---------> for testing the cron script
+                    returns     ---------> for testing the cron script
 
