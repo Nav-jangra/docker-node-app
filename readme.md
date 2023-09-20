@@ -3,7 +3,7 @@ please follow these steps to run this node application
 
 1. To get a local copy of the code, clone it using git:
 
-        git clone https://github.com/Nav-jangra/new-project
+        git clone https://github.com/Nav-jangra/docker-node-app
         cd docker-node-app
 
 2. Now that you have some source code and a Dockerfile, it’s time to build your first image:
